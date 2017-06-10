@@ -47,10 +47,14 @@ fn main() {
 	let srcfile = &args[1];
 	let max:i32 = (&args[2]).parse().unwrap();
 	let delta:i32 = (&args[3]).parse().unwrap();
+	let verbose:bool = if args.len() == 5 { (&args[4]).starts_with("v") } else { false };
 	if delta != 0 {
 		match adjust_brightness(srcfile, delta, max) {
 			Err(why) => println!("adjust_brightness: {}", why.description()),
-			Ok(brightness) => println!("new brightness: {}", brightness),
+			Ok(brightness) => if verbose {
+				// only show new brightness value for verbose output
+				println!("new brightness: {}", brightness);
+			},
 		};
 	}
 }
