@@ -2,12 +2,13 @@ brightness
 --
 
 Usage:
+
 	brightness /sys/class/backlight/.../brightness 187 +2
 	brightness /sys/class/backlight/.../brightness 187 -2
 
 brightness accepts three mandatory and one optional positional arguments:
  - name of kernel interface
- - max value of brightness (as shown by reading max_brightness)
+ - max value of brightness (as shown by reading max\_brightness)
  - a positive or negative value to add to current brigtness
  - and optional argument "v" which  makes it print the new brightness value
 
